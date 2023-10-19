@@ -1,18 +1,23 @@
-const userDetailsrouter = require("express").Router();
-const bodyParser = require("body-parser");
-const loginUsers = require("../models/Users");
+const express = require('express');
+const userDetailsRouter = express.Router();
+const bodyParser = require('body-parser');
+const loginUsers = require('../models/Users'); // Import your Users model or module as needed.
 
-
-userDetailsrouter.use(
+// Use bodyParser middleware to parse URL-encoded data
+userDetailsRouter.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
-userDetailsrouter.get("/", async (req, res) => {
-    loginUsers
-    .find()
-    .then((loginUsers) => res.json(loginUsers))
-    .catch((err) => res.status(400).json("error:" + err));
+
+// Define a route to retrieve user details
+userDetailsRouter.get('/', async (req, res) => {
+  try {
+    const users = await loginUsers.find();
+    res.json(users);
+  } catch (err) {
+    res.status(400).json('Error: ' + err);
+  }
 });
 
-module.exports=userDetailsrouter;
+module.exports = userDetailsRouter;
