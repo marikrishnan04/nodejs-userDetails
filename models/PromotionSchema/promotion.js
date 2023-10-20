@@ -6,7 +6,6 @@ const joi = require('joi');
 
 
 const promotionSchema = new Schema({
-        promotion_id: joi.number().required(),
         promotion_employee: joi.string().required(),
         depertment: joi.string().required(),
         promotion_from: joi.string().required(),
@@ -14,7 +13,7 @@ const promotionSchema = new Schema({
         promotion_date:{
             type: Date,
             default: Date.now,
-            expires: 3600,
+
         }
        
 });

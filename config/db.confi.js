@@ -1,6 +1,5 @@
 const mongoose =require('mongoose');
-const loginUsers = require('../models/Users');
-const port =process.env.PORT;
+// const uri ="mongodb://127.0.0.1:27017/employeeUers";
 const uri ="mongodb+srv://12345:mari1234@user.tyzhkrm.mongodb.net/?retryWrites=true&w=majority";
 require('dotenv').config();
 
