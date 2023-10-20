@@ -11,7 +11,11 @@ const promotionSchema = new Schema({
         depertment: joi.string().required(),
         promotion_from: joi.string().required(),
         promotion_to: joi.string().required(),
-        promotion_date: joi.string().required(),
+        promotion_date:{
+            type: Date,
+            default: Date.now,
+            expires: 3600,
+        }
        
 });
 const promotion = mongoose.model('promotion', promotionSchema);
