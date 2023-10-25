@@ -1,5 +1,6 @@
 const express = require("express");
 const Projects = require("../../models/empProjectsSchema/ProjectsSchema");
+const Emp_projectsSchema_joi = require("../../models/empProjectsSchema/Emp_projectsSchema_joi");
 const ProjectsAddRouter = express.Router();
 
 ProjectsAddRouter.post("/", async (req, res) => {
@@ -19,6 +20,11 @@ ProjectsAddRouter.post("/", async (req, res) => {
             Start_Date,
             end_Date
         });
+        const { error } = Emp_projectsSchema_joi.validate(req.body);
+
+        if (error) {
+          return res.status(400).send(error.details[0].message);
+        }
 
         const savedProjects = await Projects_employees.save();
 

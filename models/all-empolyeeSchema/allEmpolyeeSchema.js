@@ -4,49 +4,55 @@ const Joi = require('joi');
 
 
 
-const ProjectSchema = new Schema({
-    Project_Name: {
+const allemployeeSchema = new Schema({
+    First_Name: {
         type: String,
         required: true,
     },
-    Client: {
+    last_Name: {
         type: String,
         required: true,
     },
-    Priority: {
+    User_Name: {
         type: String,
         required: true,
     },
-    Add_Project_Leader: {
+    Email: {
         type: String,
         required: true,
     },
-    Team_Members: {
+    password: {
         type: String,
         required: true,
     },
-    Description: {
+
+    Confirm_Password: {
         type: String,
         required: true,
     },
-    Upload_File: {
+    Employee_ID: {
         type: String,
         required: true,
     },
-    Rate: {
+    Mobile_No: {
         type: Number,
         required: true,
     },
-    Start_Date: {
+    Department: {
+        type: String,
+        required: true,
+    },
+    Designation: {
+        type: String,
+        required: true,
+    },
+    Joining_Date: {
         type: Date,
         default: Date.now,
     },
-    end_Date: {
-        type: Date,
-        default: Date.now,
-    }
+
 });
 
-const Project = mongoose.model('Project', ProjectSchema);
+const allemployee = mongoose.model('allemployee', allemployeeSchema);
 
-module.exports = Project;
+module.exports = allemployee;

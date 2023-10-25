@@ -4,15 +4,15 @@ const joi = require('joi');
 
 // Define the user schema
 const loginuserSchema = new Schema({
-    userName: {
+    Repeat_Password:{
         type: String,
-        unique: true,
-        required: true,
+        minlength: 3, // Corrected 'minlenght' to 'minlength'
+        //' required: true
     },
     password: {
         type: String,
         minlength: 3, // Corrected 'minlenght' to 'minlength'
-        // required: true
+        //' required: true
     },
     token: {
         type: String,
@@ -27,7 +27,7 @@ const loginuserSchema = new Schema({
 }, { timestamps: true });
 
 // Create a model based on the schema
-const loginUsers = mongoose.model('app-user', loginuserSchema);
+const loginUsers = mongoose.model('user-emp', loginuserSchema);
 
 module.exports = loginUsers;
 
