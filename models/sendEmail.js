@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const otp_Verification = require("./OTP_Verification/OTP_Verification");
 
 const sendEmail = async (email, subject, text) => {
     try {
@@ -11,12 +12,14 @@ const sendEmail = async (email, subject, text) => {
               pass: "xqknidekffmmizfn"
             }
           });
+          
 
         await transporter.sendMail({
             from: "krishmarish777@gmail.com",
             to: email,
-            subject: subject,
+            subject: "Verify Your Email",
             text: text,
+           
         });
 
         console.log("email sent sucessfully");
