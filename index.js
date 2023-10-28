@@ -6,6 +6,7 @@ const ProjectAllemployee = require('./controllers/ProjectControllers/projectsEmp
 const allemployeeRouter = require('./controllers/All-empolyee/allEmployee');
 const EmpUserapiRouter = require('./allRouters/Emp_user_api');
 const EmpolyeeTicketsallApi = require('./controllers/EmpolyeeTickets/EmpolyeeTickets');
+const ClientsallApi = require('./controllers/Clients/Clients');
 const app = express();
 const port = process.env.PORT || 3000; // Add a default port (e.g., 3000) if not provided in the environment
 require('dotenv').config();
@@ -25,6 +26,7 @@ app.use("/allemployee",allemployeeRouter)
 app.use('/promotionemployee',promotionAllemployee)
 app.use("/ProjectAllemployee",ProjectAllemployee)
 app.use("/EmpolyeeTickets",EmpolyeeTicketsallApi)
+app.use("/Clients",ClientsallApi)
 
 
 app.listen(port, () => {
