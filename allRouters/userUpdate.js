@@ -4,7 +4,7 @@ const Users = require("../models/Users"); // Correct model name
 const Joi = require("joi");
 
 
-loginUsersUpdateRouter.put("/:id", async (req, res) => {
+loginUsersUpdateRouter.patch("/:id", async (req, res) => {
     console.log(req.body);
     try {
         const schema = Joi.object({
