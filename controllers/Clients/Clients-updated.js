@@ -2,7 +2,7 @@ const express = require("express");
 const Clients = require("../../models/Clients/Clients_schema");
 const ClientssUpdateRouter = express.Router();
 
-ClientssUpdateRouter.put("/:id", async (req, res) => {
+ClientssUpdateRouter.patch("/:id", async (req, res) => {
     console.log(req.body);
     try {
         const Clientss_employees = await Clients.findByIdAndUpdate(req.params.id, req.body, { new: true });
