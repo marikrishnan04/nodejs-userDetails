@@ -37,7 +37,7 @@ regRouter.post("/", async (req, res) => {
     res.json("User added successfully!");
   } catch (err) {
     console.error("Error: ", err);
-    res.status(500).send("Internal Server Error");
+    res.status(403).send("Email already exists");
   }
 });
 
