@@ -2,8 +2,7 @@ const express = require("express");
 const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTicketsSchema");
 const EmpolyeeTicketsUpdateRouter = express.Router();
 
-EmpolyeeTicketsUpdateRouter.put("/:id", async (req, res) => {
-    console.log(req.body);
+EmpolyeeTicketsUpdateRouter.patch("/:id", async (req, res) => {
     try {
         const EmpolyeeTickets_employees = await EmpolyeeTickets.findByIdAndUpdate(req.params.id, req.body, { new: true });
 

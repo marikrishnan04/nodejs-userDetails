@@ -17,8 +17,8 @@ const Emp_projectsSchema_joi = Joi.object({
       // bytes: Joi.number().required()
     },
     Rate:Joi.number().required(),
-    Start_Date:Joi.date() .raw().format("YYYY-MM-DD").less("now"),
-    end_Date:Joi.date().raw().format("YYYY-MM-DD").less("now").min(Joi.ref("Start_Date")).allow(null)
+    Start_Date:Joi.date() .raw().less("now"),
+    end_Date:Joi.date().raw().less("now").min(Joi.ref("Start_Date")).allow(null)
   });
 
   module.exports=Emp_projectsSchema_joi;

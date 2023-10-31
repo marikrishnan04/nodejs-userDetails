@@ -4,7 +4,6 @@ const Emp_promotionSchema_joi = require("../../models/PromotionSchema/Emp_promot
 const promotionAddRouter = express.Router();
 
 promotionAddRouter.post("/", async (req, res) => {
-    console.log(req.body);
     try {
         const { promotion_id, promotion_employee, department, promotion_from, promotion_to, promotion_date } = req.body;
         

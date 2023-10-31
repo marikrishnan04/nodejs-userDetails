@@ -2,8 +2,7 @@ const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
 const allemployeeUpdateRouter = express.Router();
 
-allemployeeUpdateRouter.put("/:id", async (req, res) => {
-    console.log(req.body);
+allemployeeUpdateRouter.patch("/:id", async (req, res) => {
     try {
         const allemployee_employees = await allemployee.findByIdAndUpdate(req.params.id, req.body, { new: true });
 

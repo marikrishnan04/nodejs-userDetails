@@ -4,7 +4,6 @@ const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTick
 const EmpolyeeTicketsAddRouter = express.Router();
 
 EmpolyeeTicketsAddRouter.post("/", async (req, res) => {
-    console.log(req.body);
     try {
         const {  project,
             ticket_id,

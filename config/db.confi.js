@@ -6,12 +6,23 @@ require('dotenv').config();
 
 // mongodb connect.................
 
- function loginDetails() {
-    mongoose.connect(uri)
+ function connectToDatabase() {
 
-    mongoose.connection.once('open',()=>{
-        console.log('connected success');
-    })
+    mongoose.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+    
+      const db = mongoose.connection;
+    
+      db.on('error', (error) => {
+        console.error('MongoDB connection error:', error);
+      });
+    
+      db.once('open', () => {
+        console.log('Connected to MongoDB successfully!');
+      });
+    
 }
 
-module.exports=loginDetails;
+module.exports=connectToDatabase;

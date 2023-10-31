@@ -4,7 +4,6 @@ const Clients_joi = require("../../models/Clients/Clients_schema_joi");
 const ClientsAddRouter = express.Router();
 
 ClientsAddRouter.post("/", async (req, res) => {
-    console.log(req.body);
     try {
         const {  client_id ,
             client_name ,

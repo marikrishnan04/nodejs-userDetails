@@ -3,7 +3,6 @@ const Clients = require("../../models/Clients/Clients_schema");
 const ClientsdeletedRouter = express.Router();
 
 ClientsdeletedRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedClients = await Clients.findByIdAndDelete({_id:req.params.id});
         if (!deletedClients) {

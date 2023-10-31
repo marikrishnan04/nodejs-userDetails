@@ -3,7 +3,6 @@ const Projects = require("../../models/empProjectsSchema/ProjectsSchema");
 const ProjectsdeletedRouter = express.Router();
 
 ProjectsdeletedRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedProjects = await Projects.findByIdAndDelete({_id:req.params.id});
         if (!deletedProjects) {

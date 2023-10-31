@@ -3,7 +3,6 @@ const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTick
 const EmpolyeeTicketsdeletedRouter = express.Router();
 
 EmpolyeeTicketsdeletedRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedEmpolyeeTickets = await EmpolyeeTickets.findByIdAndDelete({_id:req.params.id});
         if (!deletedEmpolyeeTickets) {

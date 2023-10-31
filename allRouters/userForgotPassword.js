@@ -1,14 +1,9 @@
 const forgotRouter = require("express").Router();
-const bodyParser = require("body-parser");
 const loginUsers = require("../models/Users");
 const Joi = require("joi");
 const { sendOTPVerification } = require("./sendOTPVerification");
 
-forgotRouter.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+
 
 forgotRouter.post("/", async (req, res) => {
   try {

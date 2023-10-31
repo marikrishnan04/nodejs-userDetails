@@ -3,7 +3,6 @@ const Promotion = require("../../models/PromotionSchema/promotion");
 const promotionDeleteRouter = express.Router();
 
 promotionDeleteRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedPromotion = await Promotion.findByIdAndDelete({_id:req.params.id});
         if (!deletedPromotion) {

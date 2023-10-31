@@ -4,7 +4,6 @@ const loginUsers = require("../models/Users");
 
 
 loginUsersdeletedRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedloginUsers = await loginUsers.findByIdAndDelete({_id:req.params.id});
         if (!deletedloginUsers) {

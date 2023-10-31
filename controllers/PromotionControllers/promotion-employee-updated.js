@@ -2,8 +2,7 @@ const express = require("express");
 const Promotion = require("../../models/PromotionSchema/promotion");
 const promotionUpdateRouter = express.Router();
 
-promotionUpdateRouter.put("/:id", async (req, res) => {
-    console.log(req.body);
+promotionUpdateRouter.patch("/:id", async (req, res) => {
     try {
         const promotion_employees = await Promotion.findByIdAndUpdate(req.params.id, req.body, { new: true });
 

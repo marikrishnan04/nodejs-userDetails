@@ -5,7 +5,6 @@ const Joi = require("joi");
 const bcrypt = require("bcrypt"); // Import bcrypt
 
 loginUsersUpdateRouter.patch("/:id", async (req, res) => {
-    console.log(req.body);
     try {
         const schema = Joi.object({
             Repeat_Password: Joi.string().required(),

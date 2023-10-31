@@ -2,8 +2,7 @@ const express = require("express");
 const Projects = require("../../models/empProjectsSchema/ProjectsSchema");
 const ProjectsUpdateRouter = express.Router();
 
-ProjectsUpdateRouter.put("/:id", async (req, res) => {
-    console.log(req.body);
+ProjectsUpdateRouter.patch("/:id", async (req, res) => {
     try {
         const Projects_employees = await Projects.findByIdAndUpdate(req.params.id, req.body, { new: true });
 

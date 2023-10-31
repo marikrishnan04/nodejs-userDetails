@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const loginDetails = require('./config/db.confi');
+const connectToDatabase = require('./config/db.confi');
 const promotionAllemployee = require('./controllers/PromotionControllers/promotionEmployee');
 const ProjectAllemployee = require('./controllers/ProjectControllers/projectsEmployee');
 const allemployeeRouter = require('./controllers/All-empolyee/allEmployee');
@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000; // Add a default port (e.g., 3000) if not
 require('dotenv').config();
 
 // Connect to the database using loginDetails()
-loginDetails();
+connectToDatabase();
 
 app.use(express.json()); // Parse JSON request bodies
 app.use(bodyParser.json()); // Parse JSON request bodies (deprecated, you can remove this line)

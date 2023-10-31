@@ -6,7 +6,7 @@ const otp_Verification = require("../models/OTP_Verification/OTP_Verification");
 exports.sendOTPVerification = async (loginUser, res) => {
     try {
       const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
-      const link = `<p> Enter ${otp} in the app to verify your email </p>`;
+      const link = ` Enter ${otp} in the app to verify your email `;
   
       // Assuming loginUsers has an email property
       await sendEmail(loginUser.email, "Password reset", link);

@@ -3,7 +3,6 @@ const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema")
 const allemployeedeletedRouter = express.Router();
 
 allemployeedeletedRouter.delete("/:id", async (req, res) => {
-    console.log(req.params);
     try {
         const deletedallemployee = await allemployee.findByIdAndDelete({_id:req.params.id});
         if (!deletedallemployee) {
