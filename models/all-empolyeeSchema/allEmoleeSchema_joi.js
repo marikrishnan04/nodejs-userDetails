@@ -10,7 +10,7 @@ const allEmployee_Joi_schema = Joi.object({
     password:Joi.string().required(),
     Confirm_Password:Joi.string().required(),
     Employee_ID:Joi.string().required(),
-    Mobile_No:Joi.number().required(),
+    Mobile_No:Joi.number().integer().max(10).required(),
     Department:Joi.string().required(),
     Designation:Joi.string().required(),
     Joining_Date:Joi.date()
