@@ -20,7 +20,7 @@ loginRouter.post("/", async (req, res) => {
 
     if (!loginUser) {
       // If no user is found, return a 400 status and a message
-      return res.status(400).send("User not registered");
+      return res.status(401).send("Invalid Password or Email");
     }
 
     // Compare the provided password with the stored hashed password
@@ -31,7 +31,7 @@ loginRouter.post("/", async (req, res) => {
 
     if (!validPassword) {
       // If the password is incorrect, return an appropriate message
-      return res.status(400).send("Password incorrect");
+      return res.status(401).send("Invalid Password or Email");
     }
 
     // If both email and password are valid, send a success message
