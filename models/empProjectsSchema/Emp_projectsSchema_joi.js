@@ -7,15 +7,16 @@ const Emp_projectsSchema_joi = Joi.object({
     Add_Project_Leader:Joi.string().required(),
     Team_Members:Joi.string().required(),
     Description:Joi.string().required(),
-    Upload_File:{
-      filename: Joi.string().required(),
-      // path: Joi.string().required(),
-      // headers: Joi.object({
-      //   'content-disposition' : Joi.string().required(),
-      //   'content-type' : Joi.string().valid(['image/jpeg']).required(),
-      // }).required(),
-      // bytes: Joi.number().required()
-    },
+    Upload_File: Joi.string().required(),
+    // {
+    //   // filename: Joi.string().required(),
+    //   // path: Joi.string().required(),
+    //   // headers: Joi.object({
+    //   //   'content-disposition' : Joi.string().required(),
+    //   //   'content-type' : Joi.string().valid(['image/jpeg']).required(),
+    //   // }).required(),
+    //   // bytes: Joi.number().required()
+    // },
     Rate:Joi.number().required(),
     Start_Date:Joi.date() .raw().less("now"),
     end_Date:Joi.date().raw().less("now").min(Joi.ref("Start_Date")).allow(null)
