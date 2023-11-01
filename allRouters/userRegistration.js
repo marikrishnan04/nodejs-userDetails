@@ -29,7 +29,7 @@ regRouter.post("/", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = new loginUsers({ email, password: hashedPassword });
+    const newUser = new loginUsers({ email, password: hashedPassword,Repeat_Password:hashedPassword });
 
     // Use async/await for saving the user
     await newUser.save();
