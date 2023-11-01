@@ -35,7 +35,7 @@ ClientsAddRouter.post("/", async (req, res) => {
         res.status(201).json({ message: "Success", Clients: savedClients });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(401).json({ error: "err" });
     }
 });
 

@@ -18,7 +18,7 @@ const OTP_Verification = new Schema({
 }, { timestamps: true });
 
 // Create a model based on the schema
-const otp_Verification = mongoose.model('OTPverification', OTP_Verification);
+const otp_Verification = mongoose.model('OTPverification new', OTP_Verification);
 
 module.exports = otp_Verification;
 

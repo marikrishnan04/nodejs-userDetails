@@ -50,6 +50,6 @@ const EmpolyeeTicketsSchema = new Schema({
 
 });
 
-const EmpolyeeTickets = mongoose.model('EmpolyeeTickets', EmpolyeeTicketsSchema);
+const EmpolyeeTickets = mongoose.model('EmpolyeeTickets new user', EmpolyeeTicketsSchema);
 
 module.exports = EmpolyeeTickets;

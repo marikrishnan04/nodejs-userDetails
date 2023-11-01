@@ -15,7 +15,7 @@ allemployeeviewRouter.get("/", async (req, res) => {
 
         res.status(200).json(employees);
     } catch (err) {
-        res.status(500).json('error: ' + err);
+        res.status(400).json('error: ' + err);
     }
 });
 

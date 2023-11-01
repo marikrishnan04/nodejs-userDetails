@@ -14,7 +14,9 @@ const ClientsSchema = new Schema({
     },
     client_email: {
         type: String,
+        unique: true,
         required: true,
+        trim: true,
     },
     client_company: {
         type: String,
@@ -37,6 +39,6 @@ const ClientsSchema = new Schema({
 
 });
 
-const Clients = mongoose.model('Clients', ClientsSchema);
+const Clients = mongoose.model('Clients new user', ClientsSchema);
 
 module.exports = Clients;

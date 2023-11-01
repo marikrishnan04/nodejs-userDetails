@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Joi = require('joi');
 
-
-
 const allemployeeSchema = new Schema({
     First_Name: {
         type: String,
@@ -17,15 +15,16 @@ const allemployeeSchema = new Schema({
         type: String,
         required: true,
     },
-    Email: {
+    email: {
         type: String,
+        unique: true,
         required: true,
+        trim: true,
     },
     password: {
         type: String,
         required: true,
     },
-
     Confirm_Password: {
         type: String,
         required: true,
@@ -50,9 +49,8 @@ const allemployeeSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-
 });
 
-const allemployee = mongoose.model('allemployee', allemployeeSchema);
+const allemployee = mongoose.model('allemployee user', allemployeeSchema);
 
 module.exports = allemployee;

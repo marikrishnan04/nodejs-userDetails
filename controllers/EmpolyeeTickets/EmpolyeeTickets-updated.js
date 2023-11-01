@@ -12,8 +12,7 @@ EmpolyeeTicketsUpdateRouter.patch("/:id", async (req, res) => {
 
         return res.status(200).json({ message: "Success", EmpolyeeTickets_employees });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(401).json({ error: "err" });
     }
 });
 

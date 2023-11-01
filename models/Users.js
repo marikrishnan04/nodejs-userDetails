@@ -14,15 +14,11 @@ const loginuserSchema = new Schema({
         minlength: 3, // Corrected 'minlenght' to 'minlength'
         //' required: true
     },
-    token: {
-        type: String,
-    },
     email: {
         type: String,
         unique: true,
         required: true,
         trim: true,
-        // Add email validation using Joi if needed
     }
 }, { timestamps: true });
 

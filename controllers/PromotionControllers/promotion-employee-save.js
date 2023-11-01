@@ -5,10 +5,9 @@ const promotionAddRouter = express.Router();
 
 promotionAddRouter.post("/", async (req, res) => {
     try {
-        const { promotion_id, promotion_employee, department, promotion_from, promotion_to, promotion_date } = req.body;
+        const { promotion_employee, department, promotion_from, promotion_to, promotion_date } = req.body;
         
         const promotion_employees = new Promotion({
-            promotion_id,
             promotion_employee,
             department,
             promotion_from,
@@ -24,8 +23,7 @@ promotionAddRouter.post("/", async (req, res) => {
 
         res.status(201).json({ message: "Success", promotion: savedPromotion });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(401).json({ error: "err" });
     }
 });
 
