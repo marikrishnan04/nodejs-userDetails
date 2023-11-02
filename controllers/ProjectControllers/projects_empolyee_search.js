@@ -19,7 +19,6 @@ ProjectsSearchRouter.get("/:key", async (req, res) => {
                 { Add_Project_Leader: { $regex: key, $options: "i" } },
                 { Team_Members: { $regex: key, $options: "i" } },
                 { Description: { $regex: key, $options: "i" } },
-                { Rate: { $regex: key, $options: "i" } },
             ]
         };
 
