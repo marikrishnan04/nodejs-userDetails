@@ -5,24 +5,22 @@ const ClientsAddRouter = express.Router();
 
 ClientsAddRouter.post("/", async (req, res) => {
     try {
-        const {  client_id ,
+        const { 
             client_name ,
             client_email ,
             client_company ,
-            client_phonenumber ,
-            state ,
-            status ,
-            action ,} = req.body;
+            client_mobilenumber ,
+            client_address ,
+            date ,
+            } = req.body;
         
         const Clients_employees = new Clients({
-            client_id ,
             client_name ,
             client_email ,
             client_company ,
-            client_phonenumber ,
-            state ,
-            status ,
-            action ,
+            client_mobilenumber ,
+            client_address ,
+            date ,
         });
         const { error } = Clients_joi.validate(req.body);
 

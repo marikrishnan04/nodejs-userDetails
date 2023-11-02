@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 
 const ClientsSchema = new Schema({
-    client_id: {
-        type: String,
-        required: true,
-    },
     client_name: {
         type: String,
         required: true,
@@ -22,19 +18,20 @@ const ClientsSchema = new Schema({
         type: String,
         required: true,
     },
-    client_phonenumber: {
+    client_mobilenumber: {
+        type: String,
+        required: true,
+    },
+    client_address: {
         type: String,
         required: true,
     },
 
-    state: {
-        type: String,
-        required: true,
+    date: {
+        type: Date,
+        default: Date.now,
     },
-    action: {
-        type: String,
-        required: true,
-    },
+ 
 
 
 });
