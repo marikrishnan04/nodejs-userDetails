@@ -12,7 +12,6 @@ ClientsSearchRouter.get("/:key", async (req, res) => {
                 {client_company:{$regex:req.params.key}},
                 {client_mobilenumber:{$regex:req.params.key}},
                 {client_address:{$regex:req.params.key}},
-                {date:{$regex:req.params.key}},
             ]
         })
 
