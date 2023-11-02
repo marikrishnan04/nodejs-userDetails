@@ -3,7 +3,7 @@ const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTick
 const EmpolyeeTicketsSearchRouter = express.Router();
 
 
-EmpolyeeTicketsSearchRouter.get("/", async (req, res) => {
+EmpolyeeTicketsSearchRouter.get("/:key", async (req, res) => {
     try {
         const EmpolyeeTicket = await EmpolyeeTickets.find({
             "$or":[

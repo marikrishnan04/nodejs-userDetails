@@ -33,7 +33,7 @@ ClientsAddRouter.post("/", async (req, res) => {
         res.status(201).json({ message: "Success", Clients: savedClients });
     } catch (err) {
         console.error(err);
-        res.status(401).json({ error: "err" });
+        res.status(401).json({ error: "Client already exists" });
     }
 });
 

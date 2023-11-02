@@ -2,7 +2,7 @@ const express = require("express");
 const Clients = require("../../models/Clients/Clients_schema");
 const ClientsSearchRouter = express.Router();
 
-ClientsSearchRouter.get("/", async (req, res) => {
+ClientsSearchRouter.get("/:key", async (req, res) => {
     try {
         const { key } = req.query; // Use query parameter instead of route parameter
 

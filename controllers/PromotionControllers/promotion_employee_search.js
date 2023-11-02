@@ -1,7 +1,7 @@
 const promotion = require("../../models/PromotionSchema/promotion");
 const promotionSearch = require("express").Router();
 
-promotionSearch.get("/", async (req, res) => {
+promotionSearch.get("/:key", async (req, res) => {
     try {
         const promotions = await promotion.find({
             "$or":[

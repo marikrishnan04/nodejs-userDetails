@@ -3,7 +3,7 @@ const Projects = require("../../models/empProjectsSchema/ProjectsSchema");
 const ProjectsSearchRouter = express.Router();
 
 
-ProjectsSearchRouter.get("/", async (req, res) => {
+ProjectsSearchRouter.get("/:key", async (req, res) => {
     try {
         const Project = await Projects.find({
             "$or":[
