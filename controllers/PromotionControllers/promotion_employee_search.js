@@ -16,9 +16,7 @@ promotionSearch.get("/:key", async (req, res) => {
                 { promotion_employee: { $regex: key, $options: "i" } },
                 { department: { $regex: key, $options: "i" } },
                 { promotion_from: { $regex: key, $options: "i" } },
-                { promotion_to: { $regex: key, $options: "i" } },
-                { promotion_date: { $regex: key, $options: "i" }},
-            ]
+                { promotion_to: { $regex: key, $options: "i" } },            ]
         };
 
         // Perform the search with pagination
