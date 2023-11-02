@@ -10,7 +10,7 @@ ClientsallApi.use('/Clients-save',ClientsAddRouter)
 ClientsallApi.use('/Clients-deleted',ClientsdeletedRouter)
 ClientsallApi.use('/Clients-Update',ClientssUpdateRouter)
 ClientsallApi.use('/Clients-viewDetails',ClientsviewRouter)
-ClientsallApi.use('/search',ClientsSearchRouter)
+ClientsallApi.use('/Clients-search',ClientsSearchRouter)
 
 
 

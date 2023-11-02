@@ -2,26 +2,36 @@ const express = require("express");
 const Clients = require("../../models/Clients/Clients_schema");
 const ClientsSearchRouter = express.Router();
 
-
 ClientsSearchRouter.get("/:key", async (req, res) => {
     try {
-        const Client = await Clients.find({
-            "$or":[
-                {client_name:{$regex:req.params.key}},
-                {client_email:{$regex:req.params.key}},
-                {client_company:{$regex:req.params.key}},
-                {client_mobilenumber:{$regex:req.params.key}},
-                {client_address:{$regex:req.params.key}},
-            ]
-        })
+        const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
+        const perPage = 10; // Set the number of items per page
 
-        res.status(200).json({ message: "Success",Client});
+        // Use the 'key' route parameter for searching
+        const key = req.params.key;
         
+        // Construct a query to search for clients containing the 'key'
+        const query = {
+            $or: [
+                { client_name: { $regex: key, $options: "i" } },
+                { client_email: { $regex: key, $options: "i" } },
+                { client_company: { $regex: key, $options: "i" } },
+                { client_mobilenumber: { $regex: key, $options: "i" } },
+                { client_address: { $regex: key, $options: "i" } },
+            ]
+        };
+
+        // Perform the search with pagination
+        const clients = await Clients
+            .find(query)
+            .sort({ client_name: 1 }) // Sort by the client name (you can change this)
+            .skip((page - 1) * perPage)
+            .limit(perPage);
+
+        res.status(200).json({ message: "Success", clients });
     } catch (err) {
-        res.status(400).json('error: ' + err);
+        res.status(500).json({ error: err.message }); // Return a structured error response
     }
 });
 
 module.exports = ClientsSearchRouter;
-
-

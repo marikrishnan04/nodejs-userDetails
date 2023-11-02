@@ -2,27 +2,38 @@ const express = require("express");
 const Projects = require("../../models/empProjectsSchema/ProjectsSchema");
 const ProjectsSearchRouter = express.Router();
 
-
 ProjectsSearchRouter.get("/:key", async (req, res) => {
     try {
-        const Project = await Projects.find({
-            "$or":[
-                {Project_Name:{$regex:req.params.key}},
-                {Client:{$regex:req.params.key}},
-                {Priority:{$regex:req.params.key}},
-                {Add_Project_Leader:{$regex:req.params.key}},
-                {Team_Members:{$regex:req.params.key}},
-                {Description:{$regex:req.params.key}},
-                {Rate:{$regex:req.params.key}},
-            ]
-        })
+        const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
+        const perPage = 10; // Set the number of items per page
 
-        res.status(200).json({ message: "Success",Project});
+        // Use the 'key' route parameter for searching
+        const key = req.params.key;
         
-    } catch (err) {
-        res.status(400).json('error: ' + err);
-    }
+        // Construct a query to search for projects containing the 'key'
+        const query = {
+            $or: [
+                { Project_Name: { $regex: key, $options: "i" } },
+                { Client: { $regex: key, $options: "i" } },
+                { Priority: { $regex: key, $options: "i" } },
+                { Add_Project_Leader: { $regex: key, $options: "i" } },
+                { Team_Members: { $regex: key, $options: "i" } },
+                { Description: { $regex: key, $options: "i" } },
+                { Rate: { $regex: key, $options: "i" } },
+            ]
+        };
 
+        // Perform the search with pagination
+        const projects = await Projects
+            .find(query)
+            .sort({ Project_Name: 1 }) // Sort by the project name (you can change this)
+            .skip((page - 1) * perPage)
+            .limit(perPage);
+
+        res.status(200).json({ message: "Success", projects });
+    } catch (err) {
+        res.status(500).json({ error: err.message }); // Return a structured error response
+    }
 });
 
 module.exports = ProjectsSearchRouter;
