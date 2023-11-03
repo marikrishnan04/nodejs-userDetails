@@ -5,7 +5,7 @@ const ProjectsAddRouter = express.Router();
 
 ProjectsAddRouter.post("/", async (req, res) => {
     try {
-        const {Project_Name,Client,Priority,Add_Project_Leader,Team_Members,Description,Upload_File,Rate,Start_Date,end_Date } = req.body;
+        const {Project_Name,Client,Priority,Add_Project_Leader,Team_Members,Description,Rate,Start_Date,end_Date } = req.body;
         
         const Projects_employees = new Projects({
             Project_Name,
@@ -14,7 +14,6 @@ ProjectsAddRouter.post("/", async (req, res) => {
             Add_Project_Leader,
             Team_Members,
             Description,
-            Upload_File,
             Rate,
             Start_Date,
             end_Date

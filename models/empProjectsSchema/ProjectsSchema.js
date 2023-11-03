@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Joi = require('joi');
-
-
 
 const ProjectSchema = new Schema({
     Project_Name: {
@@ -29,10 +26,7 @@ const ProjectSchema = new Schema({
         type: String,
         required: true,
     },
-    Upload_File: {
-        type: String,
-        required: true,
-    },
+
     Rate: {
         type: Number,
         required: true,
@@ -47,6 +41,6 @@ const ProjectSchema = new Schema({
     }
 });
 
-const Project = mongoose.model('Project new', ProjectSchema);
+const Project = mongoose.model('Project', ProjectSchema);
 
 module.exports = Project;

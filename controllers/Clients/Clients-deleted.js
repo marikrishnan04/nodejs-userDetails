@@ -11,7 +11,7 @@ ClientsdeletedRouter.delete("/:id", async (req, res) => {
         return res.status(200).json({ message: "Deleted Clients" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(401).json({ error: "err" });
     }
 });
 

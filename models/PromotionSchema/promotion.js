@@ -17,5 +17,5 @@ const promotionSchema = new Schema({
         }
        
 });
-const promotion = mongoose.model('promotion', promotionSchema);
+const promotion = mongoose.model('promotion new ', promotionSchema);
 module.exports = promotion;

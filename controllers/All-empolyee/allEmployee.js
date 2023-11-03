@@ -13,7 +13,7 @@ allemployeeRouter.use("/all-empolyee-save",allEmpolyeeAddRouter)
 allemployeeRouter.use("/all-empolyee-deleted",allemployeedeletedRouter)
 allemployeeRouter.use("/all-empolyee-Update",allemployeeUpdateRouter)
 allemployeeRouter.use("/",allemployeeviewRouter)
-allemployeeRouter.use("/sreach",allemployeesearchRouter)
+allemployeeRouter.use("/all-empolyee-search",allemployeesearchRouter)
 
 
 

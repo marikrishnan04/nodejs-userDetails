@@ -7,9 +7,14 @@ const allemployeeRouter = require('./controllers/All-empolyee/allEmployee');
 const EmpUserapiRouter = require('./mainUserRouters/Emp_user_api');
 const EmpolyeeTicketsallApi = require('./controllers/EmpolyeeTickets/EmpolyeeTickets');
 const ClientsallApi = require('./controllers/Clients/Clients');
+const uploadFiles = require('./controllers/UploadFile/UploadStorage');
 const app = express();
 const port = process.env.PORT || 3000; // Add a default port (e.g., 3000) if not provided in the environment
 require('dotenv').config();
+const path = require('path');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Connect to the database using loginDetails()
 connectToDatabase();
@@ -27,6 +32,7 @@ app.use('/promotionemployee',promotionAllemployee)
 app.use("/ProjectAllemployee",ProjectAllemployee)
 app.use("/EmpolyeeTickets",EmpolyeeTicketsallApi)
 app.use("/Clients",ClientsallApi)
+app.use("/UploadFile",uploadFiles)
 
 
 app.listen(port, () => {
