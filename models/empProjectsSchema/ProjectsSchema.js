@@ -26,7 +26,9 @@ const ProjectSchema = new Schema({
         type: String,
         required: true,
     },
-
+    Upload_File:{
+        type: String,
+        },
     Rate: {
         type: Number,
         required: true,

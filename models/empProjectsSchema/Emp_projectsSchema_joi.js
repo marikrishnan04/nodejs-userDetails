@@ -8,6 +8,7 @@ const Emp_projectsSchema_joi = Joi.object({
     Team_Members:Joi.string().required(),
     Description:Joi.string().required(),
     Rate:Joi.number().required(),
+    Upload_File:Joi.string(),
     Start_Date:Joi.date() .raw().less("now"),
     end_Date:Joi.date().raw().less("now").min(Joi.ref("Start_Date")).allow(null)
   });

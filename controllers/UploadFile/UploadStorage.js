@@ -3,15 +3,17 @@ const express = require('express');
 const mongoose = require('mongoose'); // Import Mongoose
 const uploadFiles = express.Router();
 
+
+
+
 // Set up Multer for file uploads
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Define the directory to store uploaded files
-  },
+
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
+    console.log(file.originalname);
+    cb(null, file.originalname);
   },
-});
+})
 
 const upload = multer({ storage: storage });
 
@@ -22,6 +24,7 @@ const File = mongoose.model('File', {
 });
 
 uploadFiles.post('/', upload.single('file'), async (req, res) => {
+  
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
@@ -31,10 +34,14 @@ uploadFiles.post('/', upload.single('file'), async (req, res) => {
     const file = new File({
       name: req.file.originalname,
       path: req.file.path,
+      id:req.file._id,
     });
-    await file.save();
 
-    res.json({ message: 'File uploaded successfully' });
+    await file.save();
+    console.log(file._id);
+    
+
+    res.json({ message: 'File uploaded successfully',id:file._id });
   } catch (error) {
     res.status(500).send('File upload and save process failed.');
   }
