@@ -12,7 +12,7 @@ allEmpolyeeAddRouter.post("/", async (req, res) => {
             return res.status(400).send(error.details[0].message);
         }
 
-        const { First_Name, last_Name, User_Name, email, password, Confirm_Password, Employee_ID, Mobile_No, Department, Designation, Joining_Date } = req.body;
+        const { First_Name, last_Name, User_Name, email, password, Confirm_Password,Company, Employee_ID, Mobile_No, Department, Designation, Joining_Date } = req.body;
 
         if (password !== Confirm_Password) {
             return res.status(400).send("Passwords do not match");
@@ -31,6 +31,7 @@ allEmpolyeeAddRouter.post("/", async (req, res) => {
             Employee_ID,
             Mobile_No,
             Department,
+            Company,
             Designation,
             Joining_Date
         });

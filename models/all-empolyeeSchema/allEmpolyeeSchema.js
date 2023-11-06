@@ -29,6 +29,10 @@ const allemployeeSchema = new Schema({
         type: String,
         required: true,
     },
+    Company:{
+        type: String,
+        required: true, 
+    },
     Employee_ID: {
         type: String,
         required: true,

@@ -10,6 +10,7 @@ const allEmployee_Joi_schema = Joi.object({
     Mobile_No: Joi.number().integer().required(),
     Employee_ID: Joi.string().required(),
     Department: Joi.string().required(),
+    Company: Joi.string().required(),
     Designation: Joi.string().required(),
     Joining_Date: Joi.date(),
 });
