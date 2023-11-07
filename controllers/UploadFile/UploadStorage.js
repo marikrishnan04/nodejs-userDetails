@@ -36,6 +36,7 @@ uploadFiles.post('/', upload.single('file'), async (req, res) => {
       path: req.file.path,
       id:req.file._id,
     });
+    console.log(file)
 
     await file.save();
     console.log(file._id);
