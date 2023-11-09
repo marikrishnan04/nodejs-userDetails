@@ -23,7 +23,7 @@ const File = mongoose.model('File', {
   path: String,
 });
 
-exports.uploadFiles=( upload.single('file'), async (req, res) => {
+exports.uploadFiles('/', upload.single('file'), async (req, res) => {
   
   try {
     if (!req.file) {

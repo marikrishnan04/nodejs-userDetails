@@ -41,7 +41,7 @@ router.post('/registration',register)
 router.post('/login',loginUser)
 
 
-router.put('/UserUpdated/:id',UserUpdated)
+router.patch('/UserUpdated/:id',UserUpdated)
 
 router.delete('/UserDeleted/:id',UserDeleted)
 
@@ -60,13 +60,13 @@ router.post('/allemployeeAdd',allemployeeAdd)
 router.get('/allemployeeList',allemployeeList)
 router.delete('/allemployeeDelete/:id',allemployeeDelete)
 router.get('/allemployeeSearch/:key',allemployeeSearch)
-router.put('/allemployeeUpadated/:id',allemployeeUpadated)
+router.patch('/allemployeeUpadated/:id',allemployeeUpadated)
 
 
 
 
 router.get('/ClientsList',ClientsList)
-router.put('/ClientsUpdated/:id',ClientsUpdated)
+router.patch('/ClientsUpdated/:id',ClientsUpdated)
 router.post('/ClientsAdd',ClientsAdd)
 router.delete('/ClientsDelete/:id',ClientsDelete)
 router.get('/ClientsSearch/:key',ClientsSearch)
@@ -76,12 +76,12 @@ router.get('/ClientsSearch/:key',ClientsSearch)
 
 router.get('/empolyeeTicketsSearch/:key',empolyeeTicketsSearch)
 router.delete('/empolyeeTicketsDeleted/:id',empolyeeTicketsDeleted)
-router.put('/empolyeeTicketsUpdated/:id',empolyeeTicketsUpdated)
+router.patch('/empolyeeTicketsUpdated/:id',empolyeeTicketsUpdated)
 router.post('/empolyeeTicketsAdd',empolyeeTicketsAdd)
 router.get('/empolyeeTicketsList',empolyeeTicketsList)
 
 router.get('/ProjectsSearch/:key',ProjectsSearch)
-router.put('/ProjectsUpdated/:id',ProjectsUpdated)
+router.patch('/ProjectsUpdated/:id',ProjectsUpdated)
 router.delete('/ProjectsDelete/:id',ProjectsDelete)
 router.post('/ProjectsAdd',ProjectsAdd)
 router.get('/ProjectsList',ProjectsList)
@@ -89,7 +89,7 @@ router.get('/ProjectsList',ProjectsList)
 
 router.get('/promotionSearch/:key',promotionSearch)
 router.delete('/promotionDelete/:id',promotionDelete)
-router.put('/promotionUpdated/:id',promotionUpdated)
+router.patch('/promotionUpdated/:id',promotionUpdated)
 router.post('/promotionAdd',promotionAdd)
 router.get('/promotionList',promotionList)
 
