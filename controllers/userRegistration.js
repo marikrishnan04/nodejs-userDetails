@@ -1,15 +1,14 @@
-const regRouter = require("express").Router();
 const bcrypt = require("bcrypt");
 const loginUsers = require("../models/Users");
 const Joi = require("joi");
 
 
 // Registration API
-regRouter.post("/", async (req, res) => {
+exports.register =( async (req, res) => {
   try {
     const schema = Joi.object({
       email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      password: Joi.string().required().min(8),
       Repeat_Password: Joi.string().required(),
     });
 
@@ -34,11 +33,9 @@ regRouter.post("/", async (req, res) => {
     // Use async/await for saving the user
     await newUser.save();
 
-    res.json("User added successfully!");
+    res.send("User added successfully!",newUser);
   } catch (err) {
-    console.error("Error: ", err);
-    res.status(403).send("Email already exists");
+    res.status(403).send(err);
   }
 });
 
-module.exports = regRouter;

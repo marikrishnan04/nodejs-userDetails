@@ -1,9 +1,7 @@
-const express = require("express");
 const Promotion = require("../../models/PromotionSchema/promotion");
 const Emp_promotionSchema_joi = require("../../models/PromotionSchema/Emp_promotionSchema_joi");
-const promotionAddRouter = express.Router();
 
-promotionAddRouter.post("/", async (req, res) => {
+exports.promotionAdd=( async (req, res) => {
     try {
         const { promotion_employee, department, promotion_from, promotion_to, promotion_date } = req.body;
         
@@ -21,11 +19,10 @@ promotionAddRouter.post("/", async (req, res) => {
         }
         const savedPromotion = await promotion_employees.save();
 
-        res.status(201).json({ message: "Success", promotion: savedPromotion });
+        res.status(201).send({ message: "Success", promotion: savedPromotion });
     } catch (err) {
-        res.status(401).json({ error: "err" });
+        res.status(401).send({ error: "err" });
     }
 });
 
-module.exports = promotionAddRouter;
 

@@ -1,8 +1,6 @@
-const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
-const allemployeeviewRouter = express.Router();
 
-allemployeeviewRouter.get("/", async (req, res) => {
+exports.allemployeeList=("/", async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
         const perPage = 10; // Set the number of items per page
@@ -19,4 +17,3 @@ allemployeeviewRouter.get("/", async (req, res) => {
     }
 });
 
-module.exports = allemployeeviewRouter;

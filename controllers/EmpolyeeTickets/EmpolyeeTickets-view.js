@@ -1,9 +1,7 @@
-const express = require("express");
 const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTicketsSchema");
-const EmpolyeeTicketsviewRouter = express.Router();
 
 
-EmpolyeeTicketsviewRouter.get("/", async (req, res) => {
+exports.empolyeeTicketsList=( async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
     const perPage = 10; // Set the number of items per page
@@ -14,11 +12,10 @@ EmpolyeeTicketsviewRouter.get("/", async (req, res) => {
         .skip((page - 1) * perPage)
         .limit(perPage);
 
-    res.status(200).json(EmpolyeeTicketss);
+    res.status(200).send(EmpolyeeTicketss);
 } catch (err) {
-    res.status(400).json('error: ' + err);
+    res.status(400).send('error: ' + err);
 }
 
 });
 
-module.exports = EmpolyeeTicketsviewRouter;

@@ -1,10 +1,8 @@
-const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
-const allEmpolyeeAddRouter = express.Router();
 const bcrypt = require("bcrypt");
 const allEmployee_Joi_schema = require("../../models/all-empolyeeSchema/allEmoleeSchema_joi");
 
-allEmpolyeeAddRouter.post("/", async (req, res) => {
+exports.allemployeeAdd=("/", async (req, res) => {
     try { 
         const { error } = allEmployee_Joi_schema.validate(req.body);
 
@@ -46,4 +44,4 @@ allEmpolyeeAddRouter.post("/", async (req, res) => {
       }
 });
 
-module.exports = allEmpolyeeAddRouter;
+

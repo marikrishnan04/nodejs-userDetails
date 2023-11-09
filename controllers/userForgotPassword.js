@@ -1,11 +1,10 @@
-const forgotRouter = require("express").Router();
 const loginUsers = require("../models/Users");
 const Joi = require("joi");
 const { sendOTPVerification } = require("./sendOTPVerification");
 
 
 
-forgotRouter.post("/", async (req, res) => {
+exports.forgotpassword=( async (req, res) => {
   try {
     const schema = Joi.object({ email: Joi.string().email().required() });
     const { error } = schema.validate(req.body);
@@ -28,4 +27,4 @@ forgotRouter.post("/", async (req, res) => {
 
 
 
-module.exports = forgotRouter;
+

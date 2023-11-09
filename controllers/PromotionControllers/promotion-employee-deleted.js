@@ -1,17 +1,14 @@
-const express = require("express");
 const Promotion = require("../../models/PromotionSchema/promotion");
-const promotionDeleteRouter = express.Router();
 
-promotionDeleteRouter.delete("/:id", async (req, res) => {
+exports.promotionDelete=( async (req, res) => {
     try {
         const deletedPromotion = await Promotion.findByIdAndDelete({_id:req.params.id});
         if (!deletedPromotion) {
-            return res.status(404).json({ error: "Promotion doesn't exist!" });
+            return res.status(404).send({ error: "Promotion doesn't exist!" });
         }
-        return res.status(200).json({ message: "Deleted promotion" });
+        return res.status(200).send({ message: "Deleted promotion" });
     } catch (error) {
         console.error(error);
-        res.status(401).json({ error: "err" });}
+        res.status(401).send({ error: "err" });}
 });
 
-module.exports = promotionDeleteRouter;

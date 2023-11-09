@@ -1,7 +1,6 @@
 const promotion = require("../../models/PromotionSchema/promotion");
-const promotionview = require("express").Router();
 
-promotionview.get("/", async (req, res) => {
+exports.promotionList=( async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
     const perPage = 10; // Set the number of items per page
@@ -12,10 +11,9 @@ promotionview.get("/", async (req, res) => {
         .skip((page - 1) * perPage)
         .limit(perPage);
 
-    res.status(200).json(promotions);
+    res.status(200).send(promotions);
 } catch (err) {
-    res.status(400).json('error: ' + err);
+    res.status(400).send('error: ' + err);
 }
 });
 
-module.exports = promotionview;

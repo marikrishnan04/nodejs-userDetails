@@ -1,10 +1,8 @@
-const express = require('express');
 const otp_Verification = require('../../models/OTP_Verification/OTP_Verification');
 const loginUsers = require('../../models/Users');
 const bcrypt = require("bcrypt");
-const verifyOTP = express.Router();
 
-verifyOTP.post('/', async (req, res) => {
+exports.verifyOTP=( async (req, res) => {
   try {
     const { userId, otp } = req.body;
 
@@ -45,4 +43,3 @@ verifyOTP.post('/', async (req, res) => {
   }
 });
 
-module.exports = verifyOTP;

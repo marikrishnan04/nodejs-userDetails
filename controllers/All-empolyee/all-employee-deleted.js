@@ -1,8 +1,6 @@
-const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
-const allemployeedeletedRouter = express.Router();
 
-allemployeedeletedRouter.delete("/:id", async (req, res) => {
+exports.allemployeeDelete=( async (req, res) => {
     try {
         const deletedallemployee = await allemployee.findByIdAndDelete({_id:req.params.id});
         if (!deletedallemployee) {
@@ -15,4 +13,3 @@ allemployeedeletedRouter.delete("/:id", async (req, res) => {
     }
 });
 
-module.exports = allemployeedeletedRouter;

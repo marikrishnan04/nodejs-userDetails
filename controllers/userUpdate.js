@@ -1,10 +1,9 @@
-const express = require("express");
-const loginUsersUpdateRouter = express.Router();
+
 const Users = require("../models/Users"); // Correct model name
 const Joi = require("joi");
 const bcrypt = require("bcrypt"); // Import bcrypt
 
-loginUsersUpdateRouter.patch("/:id", async (req, res) => {
+exports.UserUpdated=( async (req, res) => {
     try {
         const schema = Joi.object({
             Repeat_Password: Joi.string().required(),
@@ -31,14 +30,12 @@ loginUsersUpdateRouter.patch("/:id", async (req, res) => {
         );
 
         if (!loginUsers_employees) {
-            return res.status(404).json({ error: "User not found" });
+            return res.status(404).send({ error: "User not found" });
         }
 
-        return res.status(200).json({ message: "Password updated successfully", loginUsers_employees });
+        return res.status(200).send({ message: "Password updated successfully", loginUsers_employees });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).send( err);
     }
 });
 
-module.exports = loginUsersUpdateRouter;

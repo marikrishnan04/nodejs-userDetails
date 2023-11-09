@@ -1,17 +1,15 @@
-const express = require("express");
 const bcrypt = require("bcrypt");
 const loginUsers = require("../models/Users"); // Import your loginUsers model or module as needed.
-const loginRouter = express.Router();
 const Joi = require("joi");
 
 // login api.......................
 
-loginRouter.post("/", async (req, res) => {
+exports.loginUser=("/", async (req, res) => {
   try {
     // Find a user with the provided email password
     const schema = Joi.object({
       email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      password: Joi.string().required().min(8),
     });
     const { error } = schema.validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -38,8 +36,7 @@ loginRouter.post("/", async (req, res) => {
     res.send("Login success!!!");
   } catch (err) {
     // If an error occurs, send an error response
-    res.status(400).json("Error: " + err);
+    res.status(400).send( err);
   }
 });
 
-module.exports = loginRouter;

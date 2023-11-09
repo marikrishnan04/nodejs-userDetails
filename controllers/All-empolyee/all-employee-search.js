@@ -1,8 +1,6 @@
-const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
-const allemployeesearchRouter = express.Router();
 
-allemployeesearchRouter.get("/:key", async (req, res) => {
+exports.allemployeeSearch=( async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Parse the page query parameter or default to 1
         const perPage = 10; // Set the number of items per page
@@ -36,4 +34,3 @@ allemployeesearchRouter.get("/:key", async (req, res) => {
     }
 });
 
-module.exports = allemployeesearchRouter;

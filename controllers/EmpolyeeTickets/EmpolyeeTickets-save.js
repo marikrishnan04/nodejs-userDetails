@@ -1,9 +1,7 @@
-const express = require("express");
 const employeeTicketsJoiSchema = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTicketsSchema_joi");
 const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTicketsSchema");
-const EmpolyeeTicketsAddRouter = express.Router();
 
-EmpolyeeTicketsAddRouter.post("/", async (req, res) => {
+exports.empolyeeTicketsAdd=( async (req, res) => {
     try {
         const {  project,
             ticket_id,
@@ -36,11 +34,10 @@ EmpolyeeTicketsAddRouter.post("/", async (req, res) => {
 
         const savedEmpolyeeTickets = await EmpolyeeTickets_employees.save();
 
-        res.status(201).json({ message: "Success", EmpolyeeTickets: savedEmpolyeeTickets });
+        res.status(201).send({ message: "Success", EmpolyeeTickets: savedEmpolyeeTickets });
     } catch (err) {
-        res.status(401).json({ error: "err" });
+        res.status(401).send({ error: "err" });
     }
 });
 
-module.exports = EmpolyeeTicketsAddRouter;
 

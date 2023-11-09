@@ -23,7 +23,7 @@ const File = mongoose.model('File', {
   path: String,
 });
 
-uploadFiles.post('/', upload.single('file'), async (req, res) => {
+exports.uploadFiles=( upload.single('file'), async (req, res) => {
   
   try {
     if (!req.file) {
@@ -48,4 +48,3 @@ uploadFiles.post('/', upload.single('file'), async (req, res) => {
   }
 });
 
-module.exports = uploadFiles;

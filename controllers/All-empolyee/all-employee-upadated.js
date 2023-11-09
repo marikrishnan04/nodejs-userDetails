@@ -1,8 +1,6 @@
-const express = require("express");
 const allemployee = require("../../models/all-empolyeeSchema/allEmpolyeeSchema");
-const allemployeeUpdateRouter = express.Router();
 
-allemployeeUpdateRouter.patch("/:id", async (req, res) => {
+exports.allemployeeUpadated=( async (req, res) => {
     try {
         const allemployee_employees = await allemployee.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
@@ -17,4 +15,3 @@ allemployeeUpdateRouter.patch("/:id", async (req, res) => {
     }
 });
 
-module.exports = allemployeeUpdateRouter;

@@ -1,18 +1,15 @@
-const express = require("express");
 const EmpolyeeTickets = require("../../models/EmpolyeeTicketsSchema/EmpolyeeTicketsSchema");
-const EmpolyeeTicketsdeletedRouter = express.Router();
 
-EmpolyeeTicketsdeletedRouter.delete("/:id", async (req, res) => {
+exports.empolyeeTicketsDeleted=( async (req, res) => {
     try {
         const deletedEmpolyeeTickets = await EmpolyeeTickets.findByIdAndDelete({_id:req.params.id});
         if (!deletedEmpolyeeTickets) {
-            return res.status(404).json({ error: "EmpolyeeTickets doesn't exist!" });
+            return res.status(404).send({ error: "EmpolyeeTickets doesn't exist!" });
         }
-        return res.status(200).json({ message: "Deleted EmpolyeeTickets" });
+        return res.status(200).send({ message: "Deleted EmpolyeeTickets" });
     } catch (error) {
         console.error(error);
-        res.status(401).json({ error: "err" });
+        res.status(401).send({ error: "err" });
     }
 });
 
-module.exports = EmpolyeeTicketsdeletedRouter;
