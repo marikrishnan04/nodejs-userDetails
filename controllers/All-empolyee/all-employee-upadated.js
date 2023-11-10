@@ -5,13 +5,13 @@ exports.allemployeeUpadated=( async (req, res) => {
         const allemployee_employees = await allemployee.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
         if (!allemployee_employees) {
-            return res.status(404).json({ error: "allemployee not found" });
+            return res.status(404).send({ error: "allemployee not found" });
         }
 
-        return res.status(200).json({ message: "Success", allemployee_employees });
+        return res.status(200).send({ message: "Success", allemployee_employees });
     } catch (err) {
         console.error(err);
-        res.status(401).json({ error: "err" });
+        res.status(401).send({ error: "err" });
     }
 });
 

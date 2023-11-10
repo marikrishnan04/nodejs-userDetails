@@ -28,9 +28,9 @@ exports.allemployeeSearch=( async (req, res) => {
             .skip((page - 1) * perPage)
             .limit(perPage);
 
-        res.status(200).json({ message: "Success", employees });
+        res.status(200).send({ message: "Success", employees });
     } catch (err) {
-        res.status(500).json({ error: err.message }); // Return a structured error response
+        res.status(500).send({ error: err.message }); // Return a structured error response
     }
 });
 

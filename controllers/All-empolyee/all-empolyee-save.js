@@ -37,10 +37,10 @@ exports.allemployeeAdd=("/", async (req, res) => {
         // Use async/await for saving the user
         await newEmployee.save();
         
-        res.status(201).json({ message: "Success", allEmpolyee: newEmployee });
+        res.status(201).send({ message: "Success", allEmpolyee: newEmployee });
     } catch (err) {
         console.error(err);
-        res.status(400).json({ error: "User already exists" });
+        res.status(400).send({ error: "User already exists" });
       }
 });
 

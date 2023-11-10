@@ -11,9 +11,9 @@ exports.allemployeeList=("/", async (req, res) => {
             .skip((page - 1) * perPage)
             .limit(perPage);
 
-        res.status(200).json(employees);
+        res.status(200).send(employees);
     } catch (err) {
-        res.status(400).json('error: ' + err);
+        res.status(400).send('error: ' + err);
     }
 });
 
