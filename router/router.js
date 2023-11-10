@@ -24,6 +24,10 @@ const { promotionUpdated } = require("../controllers/PromotionControllers/promot
 const { promotionList } = require("../controllers/PromotionControllers/promotion-employee-view");
 const { promotionSearch } = require("../controllers/PromotionControllers/promotion_employee_search");
 const { resendOTP } = require("../controllers/ResendOTP");
+const { SidebarItemDelete } = require("../controllers/SidebarItem/SidebarItem-deleted");
+const { SidebarItemList } = require("../controllers/SidebarItem/SidebarItem-list");
+const { SidebarItemUpdated } = require("../controllers/SidebarItem/SidebarItem-updated");
+const { SidebarItemAdd } = require("../controllers/SidebarItem/SidebarItemAdd");
 const { uploadFiles } = require("../controllers/UploadFile/UploadStorage");
 const { verifyOTP } = require("../controllers/Verify_OTP/Verify_otp");
 const { UserDeleted } = require("../controllers/userDeleted");
@@ -92,6 +96,15 @@ router.delete('/promotionDelete/:id',promotionDelete)
 router.patch('/promotionUpdated/:id',promotionUpdated)
 router.post('/promotionAdd',promotionAdd)
 router.get('/promotionList',promotionList)
+
+router.get('/SidebarItemAdd',SidebarItemAdd)
+router.patch('/SidebarItemUpdated/:id',SidebarItemUpdated)
+router.delete('/SidebarItemDelete/:id',SidebarItemDelete)
+router.get('/SidebarItemList',SidebarItemList)
+
+
+
+
 
 
 router.post('/uploadFiles',uploadFiles)
