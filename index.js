@@ -7,7 +7,6 @@ const port = process.env.PORT_URL // Add a default port (e.g., 3000) if not prov
 const router = require('./router/router');
 
 
-
 // Connect to the database using loginDetails()
 connectToDatabase();
 

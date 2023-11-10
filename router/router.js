@@ -97,5 +97,4 @@ router.get('/promotionList',promotionList)
 router.post('/uploadFiles',uploadFiles)
 
 
-
 module.exports=router;
